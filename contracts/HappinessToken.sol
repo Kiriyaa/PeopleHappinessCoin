@@ -8,8 +8,9 @@ contract ExampleToken is ERC20{
          
          //msg.sender = your wallet address
          //amount = quantity of tokens ( 18 decimal places).
+         _setupDecimals(0);
          _mint(msg.sender, 1000* (10 ** uint256(decimals())));
-         _transfer(msg.sender, address(this), 1000* (10 ** uint256(decimals())) );
+         //_transfer(msg.sender, address(this), 1000* (10 ** uint256(decimals())) ); // trasnfer to the contract
     }
     
     function reward( uint256 amt )public{
