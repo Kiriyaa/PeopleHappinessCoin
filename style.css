@@ -24,7 +24,7 @@ p {
 
 h1 {
   text-align: center;
-  color: purple;
+  color: red;
 }
 
 h2 {
@@ -61,6 +61,27 @@ ul {
 .copy {
   font-size: .9em;
 }
+
+#left-form {
+  margin-left: 2vw;
+}
+
+#left-form > * {
+  font: 1rem 'Fira Sans', sans-serif;
+  margin: 1em 0;
+}
+
+.input-text {
+  width: 50vw;
+  height: 50vh;
+  display: block;
+}
+
+#input-submit {
+  display: block;
+}
+
+
 
 
 .copy::after {

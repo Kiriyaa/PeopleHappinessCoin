@@ -5,9 +5,57 @@ import { ethers } from "./libs/ethers-5.0.esm.min.js";
 ethereum.autoRefreshOnNetworkChange = false;
 window.ethereum.enable();
 
+let inputTexts = [];
+
+var lib = ['one', 'two', 'three'];
+var censoredText = [];
+
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 let i = 0;
+
+let inputSubmit = document.getElementById("input-submit");
+
+inputSubmit.addEventListener("click", function(){
+  //get inputbox
+  let inputText = document.querySelector(".input-text");
+
+  inputTexts.push(inputText.value);
+  let CurrentTexts = inputTexts[inputTexts.length-1];
+  //get all words
+  var inputWords = CurrentTexts.split(" ");
+
+//Censor function
+  // inputWords.forEach(elementInput => {
+  //   lib.forEach(elementLib => {
+  //     if(elementLib == elementInput){
+  //       console.log("Censor!");
+  //       censoredText.push(elementInput);
+  //     }
+  //   });
+  // });
+
+  let censorString = "";
+
+  for(let i = 0; i < inputWords.length; i++) {
+
+    let currentWord = inputWords[i];
+
+    if(lib.indexOf(currentWord) < 0) {
+      // it's good  
+    } else {
+      console.log("Censor!");
+      censoredText.push(currentWord);
+      censorString+=currentWord + " ";
+    }
+  }
+
+//console log
+  console.log(CurrentTexts);
+  console.log(inputWords);
+  console.log(censoredText);
+  console.log(censorString);
+})
 
 
 // The Metamask plugin also allows signing transactions to
@@ -25,7 +73,7 @@ const contractABI = [
 ];
 const contract = new ethers.Contract(contractAddress, contractABI, provider);
 const tokenWithSigner = contract.connect(signer);
-tokenWithSigner.reward(10);
+// tokenWithSigner.reward(10);
 
 // main();
 
