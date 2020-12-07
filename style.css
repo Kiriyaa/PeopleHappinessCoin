@@ -12,6 +12,7 @@ html {
   margin: 0 auto;
   max-width: 1200px;
   padding: 20px;
+  padding-bottom: 0px ;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,15 +64,16 @@ ul {
 }
 
 #left-form {
-  margin-left: 2vw;
+  margin-left: 0vw;
 }
 
-#left-form > * {
-  font: 1rem 'Fira Sans', sans-serif;
+/* #left-form > * {
+  font: 1.5rem 'Fira Sans', sans-serif;
   margin: 1em 0;
-}
+} */
 
 .input-text {
+  margin-left: 25%;
   width: 50vw;
   height: 50vh;
   display: block;
@@ -79,10 +81,23 @@ ul {
 
 #input-submit {
   display: block;
+  margin-top: 4vw;
+  margin-left: 48vw;
+  font: 1.5rem 'Fira Sans', sans-serif;
 }
 
+#inputbox {
+  margin-left: 25%;
+  font: 1.5rem 'Fira Sans', sans-serif;
+  border: 2px solid black;
+}
 
-
+h4{
+  font-size: 1.5em;
+  color: red;
+  margin-left: 41vw;
+  margin-bottom: 2vw;
+}
 
 .copy::after {
   content: "[copy]";
@@ -92,4 +107,63 @@ ul {
   color: white;
   padding: .3em;
   cursor: pointer;
+}
+
+
+.clean-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: red;
+}
+
+.vibrate {
+  animation-name: vibrate;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1;
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+    z-index: 1;
+    opacity: 1;
+  }
+
+  98% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+    z-index: -2;
+  }
+}
+
+@keyframes vibrate2 {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1;
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 1;
+    z-index: 1;
+  }
 }

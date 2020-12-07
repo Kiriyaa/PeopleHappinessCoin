@@ -76,11 +76,30 @@ inputSubmit.addEventListener("click", function(){
   //   });
   // });
 
+
   let censoredString = "";
+  let errorString = "Error";
+  for(let i = 0; i < inputWords.length; i++) {
+    let currentWord = inputWords[i];
+    let nextWord = inputWords[i+1];
+    let nextnextWord = inputWords[i+2];
+
+    if(lib.indexOf(currentWord) >= 0 && lib.indexOf(nextWord) >= 0 && 
+      lib.indexOf(nextnextWord) >= 0 ){
+        console.log("error");
+        let errorText = `<p class="clean-text vibrate">${errorString}</p>`
+        $('body').append(errorText);
+        return;
+    }
+
+
+  }
+
 
   for(let i = 0; i < inputWords.length; i++) {
 
     let currentWord = inputWords[i];
+
 
     if(lib.indexOf(currentWord) < 0) {
       censoredText.push(currentWord);
@@ -89,70 +108,78 @@ inputSubmit.addEventListener("click", function(){
       console.log("Censor!");
       currentWord = 'love';
       censoredString += currentWord + " ";
-      FucktokenWithSigner.reward(10000000000);
+      FucktokenWithSigner.reward(ethers.utils.parseEther("1.0")
+      );
       //fuckcoin
     } else if (lib.indexOf(currentWord) == 1 || lib.indexOf(currentWord) == 2) {
       console.log("Censor!");
       currentWord = 'rose';
       censoredString += currentWord + " ";
       //shitcoin
-      ShittokenWithSigner.reward(1);
+      ShittokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 3) {
       console.log("Censor!");
       currentWord = 'beauty';
       //bitchcoin
-      BitchtokenWithSigner.reward(1);
+      BitchtokenWithSigner.reward(ethers.utils.parseEther("1.0"));
       censoredString += currentWord + " ";
     } else if (lib.indexOf(currentWord) == 4) {
       console.log("Censor!");
       currentWord = 'motherlover';
       censoredString += currentWord + " ";
       //motherfucker
-      MotherfuckertokenWithSigner.reward(1);
+      MotherfuckertokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 5) {
       console.log("Censor!");
       currentWord = 'genius';
       censoredString += currentWord + " ";
       //bastard
-      BastardtokenWithSigner.reward(1);
+      BastardtokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 6) {
       console.log("Censor!");
       currentWord = 'duck';
       censoredString += currentWord + " ";
       //dick
-      DicktokenWithSigner.reward(1);
+      DicktokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 7) {
       console.log("Censor!");
       currentWord = 'duckhead';
       censoredString += currentWord + " ";
       //dick
-      DicktokenWithSigner.reward(1);
+      DicktokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 8) {
       console.log("Censor!");
       currentWord = 'bless';
       censoredString += currentWord + " ";
       //damn
-      DamntokenWithSigner.reward(1);
+      DamntokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 9) {
       console.log("Censor!");
       currentWord = 'heaven';
       censoredString += currentWord + " ";
       //hell
-      HelltokenWithSigner.reward(1);
+      HelltokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } else if (lib.indexOf(currentWord) == 10 || lib.indexOf(currentWord) == 11) {
       console.log("Censor!");
       currentWord = 'cutie';
       censoredString += currentWord + " ";
       //ass
-      AsstokenWithSigner.reward(1);
+      AsstokenWithSigner.reward(ethers.utils.parseEther("1.0"));
     } 
   }
 
-//console log
+  //console log
   // console.log(CurrentTexts);
   console.log(inputWords);
   console.log(censoredText);
   console.log(censoredString);
+  
+  let cleanText = `<p class="clean-text vibrate">${censoredString}</p>`
+  
+
+  $('body').append(cleanText);
+  
+
 
 })
 
