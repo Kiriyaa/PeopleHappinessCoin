@@ -77,13 +77,13 @@ ul {
   width: 50vw;
   height: 50vh;
   display: block;
+  font: 5rem;
 }
 
 #input-submit {
   display: block;
   margin-top: 4vw;
   margin-left: 48vw;
-  font: 1.5rem 'Fira Sans', sans-serif;
 }
 
 #inputbox {
@@ -142,7 +142,7 @@ h4{
   }
 
   98% {
-    transform: translate(-50%, -50%) scale(2);
+    transform: translate(-50%, -50%) scale(4);
     opacity: 0;
     z-index: 1;
   }
