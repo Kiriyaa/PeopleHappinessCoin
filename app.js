@@ -64,7 +64,7 @@ inputSubmit.addEventListener("click", function(){
   let inputText = document.querySelector(".input-text");
 
   inputTexts.push(inputText.value);
-  let CurrentTexts = inputTexts[inputTexts.length-1];
+  let CurrentTexts = inputTexts[inputTexts.length-1].toLowerCase();
   //get all words
   var inputWords = CurrentTexts.split(" ");
 
